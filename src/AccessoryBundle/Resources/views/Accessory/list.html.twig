@@ -1,0 +1,60 @@
+{% extends "::base.html.twig" %}
+{% block title %}AccessoryBundle:Accessory:list{% endblock %}
+{%  block header %} {{ include('::header.html.twig') }}{% endblock %}
+{% block body %}
+<!--
+    <h1>Accesories list</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Nom</th>
+            <th>prix</th>
+            <th>description</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for accessory in accessories %}
+            <tr>
+                <td><a href="{{ path('show', { 'id': accessory.id}) }}">{{ accessory.id }}</a></td>
+                <td>{{ accessory.name }}</td>
+                <td>{{ accessory.price }}</td>
+                <td>{{ accessory.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('show', { 'id': accessory.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    -->
+<div class="ui three column stackable grid" id="products">
+{% for accessory in accessories %}
+<div class="column">
+    <div class="ui fluid card">
+        <a href="{{ path('show', { 'id': accessory.id }) }}" class="blurring dimmable image">
+            <div class="ui dimmer">
+                <div class="content">
+                    <div class="center">
+                        <div class="ui inverted button">View more</div>
+                    </div>
+                </div>
+            </div>
+
+            <img src="{{ asset(accessory.imageUrl) }}" alt="{{ accessory.name }}" class="ui bordered image" />
+        </a>
+        <div class="content">
+            <a href="{{ path('show', { 'id': accessory.id }) }}" class="header sylius-product-name">{{ accessory.name }}</a>
+            <div class="sylius-product-price">{{ accessory.price }}</div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

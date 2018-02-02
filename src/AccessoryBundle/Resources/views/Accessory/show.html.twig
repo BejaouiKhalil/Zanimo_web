@@ -1,0 +1,187 @@
+{% extends "::base.html.twig" %}
+{% block title %}AccessoryBundle:Accessory:show{% endblock %}
+{%  block header %} {{ include('::header.html.twig') }}{% endblock %}
+{% block body %}
+
+  <!-- <h1>Accessory</h1>
+
+    <table>
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ accessory.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ accessory.name }}</td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td>{{ accessory.price }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ accessory.description }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <img src="{{ asset(accessory.imageUrl) }}">
+    <ul>
+        <li>
+            <a href="{{ path('list') }}">Back to the list</a>
+        </li>
+    </ul>
+    -->
+<div class="pusher">
+
+    <div class="ui hidden divider"></div>
+
+    <div class="ui two column stackable grid">
+        <div class="column">
+
+
+
+            <div data-product-image="http://demo.sylius.org/media/cache/resolve/sylius_shop_product_large_thumbnail/b3/ea/dc284833dba18973d05c5146c65b.jpeg" data-product-link="http://demo.sylius.org/media/cache/resolve/sylius_shop_product_original/b3/ea/dc284833dba18973d05c5146c65b.jpeg"></div>
+            <a href="../../media/cache/sylius_shop_product_original/b3/ea/dc284833dba18973d05c5146c65b.jpg" class="ui fluid image" data-lightbox="sylius-product-image">
+                <img src="{{ asset(accessory.imageUrl) }}" id="main-image" alt="Mug &quot;ab&quot;" />
+            </a>
+            <div class="ui divider"></div>
+
+
+
+            <div class="ui small images">
+                <div class="ui image">
+                    <div class="sylius-image-variants">
+                    </div>
+                    <a href="../../media/cache/sylius_shop_product_original/b3/ea/dc284833dba18973d05c5146c65b.jpg" data-lightbox="sylius-product-image">
+                        <img src="{{ asset(accessory.imageUrl) }}" data-large-thumbnail="http://demo.sylius.org/media/cache/resolve/sylius_shop_product_large_thumbnail/b3/ea/dc284833dba18973d05c5146c65b.jpeg" alt="Mug &quot;ab&quot;" />
+                    </a>
+                </div>
+                <div class="ui image">
+                    <div class="sylius-image-variants">
+                    </div>
+                    <a href="../../media/cache/sylius_shop_product_original/ad/a5/0506e976e885257ddf9f503f6334.jpg" data-lightbox="sylius-product-image">
+                        <img src="{{ asset(accessory.imageUrl) }}" alt="Mug &quot;ab&quot;" />
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    <div class="column">
+        <h1 id="sylius-product-name" class="ui monster dividing header">{{ accessory.name }}</h1>
+
+
+
+        <div class="ui text menu">
+            <div class="item">
+                <div id="average-rating" class="ui star large rating" data-rating="0" data-max-rating="5" data-average-rating="0" style="pointer-events: none;"></div>
+            </div>
+            <a href="mug-ab/reviews/index.html" class="item">0 Reviews</a>
+            <a href="mug-ab/reviews/new.html" class="item">Add your review</a>
+        </div>
+
+
+
+        <div class="ui stackable grid">
+            <div class="four wide column">
+
+<span class="ui huge header" id="product-price">
+    {{ accessory.price }} Dt
+</span>
+            </div>
+            <div class="twelve wide right aligned column">
+                <span class="ui sub header">{{ accessory.id }}</span>
+            </div>
+        </div>
+
+
+
+        <div class="ui basic segment">
+            <p>{{ accessory.description }}</p>
+        </div>
+
+
+
+
+        <div id="sylius-variants-pricing" data-unavailable-text="Unavailable">
+            <div data-mug_type="mug_type_medium" data-value="$6.58" ></div>
+            <div data-mug_type="mug_type_double" data-value="$8.82" ></div>
+            <div data-mug_type="mug_type_monster" data-value="$6.99" ></div>
+        </div>
+
+
+        <div class="ui segment" id="sylius-product-selecting-variant">
+
+
+            <form name="sylius_add_to_cart" method="post" action="http://demo.sylius.org/en_US/ajax/cart/add?productId=425065" id="sylius-product-adding-to-cart" class="ui loadable form" novalidate="novalidate" data-redirect="/en_US/cart/">
+
+                <div class="ui red label bottom pointing hidden sylius-validation-error" id="sylius-cart-validation-error"></div>
+                <div class="required field"><label for="sylius_add_to_cart_cartItem_variant_mug_type" class="required">Mug type</label><select id="sylius_add_to_cart_cartItem_variant_mug_type" name="sylius_add_to_cart[cartItem][variant][mug_type]" data-option="mug_type" class=" ui dropdown"><option value="mug_type_medium" selected="selected">Medium mug</option><option value="mug_type_double">Double mug</option><option value="mug_type_monster">Monster mug</option></select></div>
+                <div class="required field"><label for="sylius_add_to_cart_cartItem_quantity" class="required">Quantity</label><input type="number" id="sylius_add_to_cart_cartItem_quantity" name="sylius_add_to_cart[cartItem][quantity]" required="required" min="1" value="1" /></div>
+
+
+
+                <button type="submit" class="ui huge primary icon labeled button"><i class="cart icon"></i> Add to cart</button>
+                <input type="hidden" id="sylius_add_to_cart__token" name="sylius_add_to_cart[_token]" value="mviYU7N_oMfgDQRr9FCaDz3wQWwHnaAXodMI1uHzcGo" />
+            </form>
+        </div>
+
+        <div class="ui hidden divider"></div>
+
+
+    </div>
+    </div>
+
+
+
+    <div class="ui top attached large tabular menu">
+        <a class="item active" data-tab="details">Details</a>
+        <a class="item" data-tab="attributes">Attributes</a>
+        <a class="item" data-tab="reviews">Reviews (0)</a>
+    </div>
+
+    <div class="ui bottom attached tab segment active" data-tab="details">
+
+        {{ accessory.description }}
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="attributes">
+
+
+        <table id="sylius-product-attributes" class="ui definition table">
+            <tbody>
+            <tr>
+                <td class="sylius-product-attribute-name">Mug material</td>
+                <td class="sylius-product-attribute-value">
+                    Centipede                            </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="reviews" id="sylius-product-reviews">
+
+
+
+        <div class="ui icon info message">
+            <i class="info circle icon"></i>
+            <div class="content">
+                <div class="header">
+                    Info
+                </div>
+                <p>There are no reviews</p>
+            </div>
+        </div>
+
+
+
+
+        <a href="mug-ab/reviews/index.html">
+            <div class="ui labeled icon button"><i class="icon list"></i> View more</div>
+        </a>
+        <a href="mug-ab/reviews/new.html">
+            <div class="ui blue labeled icon button"><i class="icon plus"></i> Add your review</div>
+        </a>
+    </div>
+{% endblock %}

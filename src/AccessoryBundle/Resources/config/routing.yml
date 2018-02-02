@@ -1,0 +1,18 @@
+accessory_homepage:
+    path:     /
+    defaults: { _controller: AccessoryBundle:Default:index }
+
+show:
+    path:     /show/{id}
+    defaults: { _controller: AccessoryBundle:Accessory:show }
+
+list:
+    path:     /list
+    defaults: { _controller: AccessoryBundle:Accessory:list }
+
+_update:
+    path:     /Update/{id}
+    defaults: { _controller: AccessoryBundle:Accessory:Update }
+add:
+    path:     /add
+    defaults: {_controller: AccessoryBundle:Accessory:Add}

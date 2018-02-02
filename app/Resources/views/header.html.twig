@@ -1,0 +1,74 @@
+
+{% block header %}
+<div class="pusher">
+    <div id="menu" class="ui large sticky inverted stackable menu">
+
+
+
+
+
+
+
+        <div class="ui right stackable inverted menu">
+            <a href="#" class="item">Login</a>
+            <a href="#" class="item">Register</a>
+        </div>
+
+
+
+    </div>
+
+    <div class="ui container">
+        <header>
+            <div class="ui basic segment">
+                <div class="ui tow column stackable grid">
+
+
+
+
+
+
+
+
+            <div class="ui large stackable menu">
+
+                <a href="{{ path('list') }}" class="item">Accessories</a>
+
+
+                <a href="#" class="item">Animals</a>
+
+
+                <a href="#" class="item">Animal Foods</a>
+
+                <a href="#" class="item">Services</a>
+
+
+
+
+            </div>
+
+
+                    <div class="right aligned column">
+
+                        <div id="sylius-cart-button" class="ui circular cart button" style="margin-left: 500px;">
+
+
+                            <i class="cart icon"></i>
+                            <span id="sylius-cart-total">
+        $0.00
+    </span>
+
+
+                        </div>
+                        <div class="ui large flowing cart hidden popup">
+
+
+                            Your cart is empty.
+
+
+                        </div>
+
+                    </div>
+                </div>
+        </header>
+        {% endblock %}
