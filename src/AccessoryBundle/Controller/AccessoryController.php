@@ -48,9 +48,10 @@ class AccessoryController extends Controller
                 $this->getParameter('img_directory'),
                 $fileName
             );
-            $accessory->setImageUrl($fileName);
+            $accessory->setImageUrl('uploads/'.$fileName);
 
             $em->persist($accessory);
+            $em->flush();
             return $this->redirectToRoute('list');
         }
         return $this->render('@Accessory/Accessory/add.html.twig',
