@@ -55,7 +55,7 @@ class Accessory
      *
      * @ORM\Column(name="image_url", type="string", length=255)
      * @Assert\NotBlank(message="Please, upload the product brochure as a PNG file.")
-     * @Assert\File(mimeTypes={ "image/jpeg" })
+     *
      */
     private $imageUrl;
 
