@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('AccessoryBundle:Default:index.html.twig');
+        return $this->render('admin/layout.html.twig');
     }
 }
