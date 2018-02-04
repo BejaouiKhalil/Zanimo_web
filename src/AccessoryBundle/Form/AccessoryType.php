@@ -19,6 +19,7 @@ class AccessoryType extends AbstractType
             ->add('description')
             ->add('price')
             ->add('imageUrl',FileType::class)
+
             ->add('Submit',SubmitType::class);
     }/**
      * {@inheritdoc}
