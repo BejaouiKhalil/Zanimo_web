@@ -15,12 +15,9 @@ class AccessoryType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')
-            ->add('description')
-            ->add('price')
-            ->add('imageUrl',FileType::class)
+        $builder
+            ->add('imageUrl',FileType::class)->add('submit', SubmitType::class);
 
-            ->add('Submit',SubmitType::class);
     }/**
      * {@inheritdoc}
      */

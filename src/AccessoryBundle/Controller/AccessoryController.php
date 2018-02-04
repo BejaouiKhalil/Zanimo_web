@@ -6,6 +6,8 @@ use AccessoryBundle\Entity\Accessory;
 use AccessoryBundle\Form\AccessoryType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
+
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -37,25 +39,31 @@ class AccessoryController extends Controller
     public function AddAction(Request $request){
         $em = $this->getDoctrine()->getManager();
         $accessory = new Accessory();
-        $form = $this->createForm(AccessoryType::class,$accessory);
-        $form->handleRequest($request);
-        if  ($form->isSubmitted() && $form->isValid()) {
 
-          $file = new UploadedFile($accessory->getImageUrl(),'test');
+        if  ($request->isMethod('post')) {
+
+          $file = new UploadedFile($_FILES['img']['tmp_name'],'test');
 
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
             $file->move(
                 $this->getParameter('img_directory'),
                 $fileName
             );
+
             $accessory->setImageUrl('uploads/'.$fileName);
+            $accessory->setDescription($request->get('description'));
+            $accessory->setName($request->get('name'));
+            $accessory->setPrice($request->get('price'));
+            $accessory->setStock($request->get('stock'));
+            $accessory->setType($request->get('type'));
+            $accessory->setInserted(new \DateTime());
 
             $em->persist($accessory);
             $em->flush();
             return $this->redirectToRoute('list');
         }
         return $this->render('@Accessory/Accessory/add.html.twig',
-            array('form'=> $form->createView()));
+            array());
     }
     private function generateUniqueFileName()
     {
