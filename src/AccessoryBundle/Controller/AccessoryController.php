@@ -77,5 +77,9 @@ class AccessoryController extends Controller
         // uniqid(), which is based on timestamps
         return md5(uniqid());
     }
+    public function Delete(Accessory $accessory){
+        $em = $this->getDoctrine()->getManager();
+
+    }
 
 }
