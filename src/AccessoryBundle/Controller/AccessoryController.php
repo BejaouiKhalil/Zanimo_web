@@ -27,7 +27,13 @@ class AccessoryController extends Controller
             "accessories"=>$accessories
         ));
     }
-
+    public function AdminlistAction()
+    {
+        $accessories = $this->getDoctrine()->getManager()->getRepository(Accessory::class)->findAll();
+        return $this->render('AccessoryBundle:Accessory:adminList.html.twig', array(
+            "accessories"=>$accessories
+        ));
+    }
     public function UpdateAction(Accessory $accessory)
     {
 

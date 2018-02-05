@@ -10,6 +10,10 @@ list:
     path:     /list
     defaults: { _controller: AccessoryBundle:Accessory:list }
 
+AdminList:
+    path: /admin/list
+    defaults: {_controller: AccessoryBundle:Accessory:AdminList}
+
 _update:
     path:     /Update/{id}
     defaults: { _controller: AccessoryBundle:Accessory:Update }

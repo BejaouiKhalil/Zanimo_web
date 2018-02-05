@@ -122,14 +122,19 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AccessoryBundle\\Controller\\AccessoryController::listAction',  '_route' => 'list',);
         }
 
-        // _update
-        if (0 === strpos($pathinfo, '/Update') && preg_match('#^/Update/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => '_update')), array (  '_controller' => 'AccessoryBundle\\Controller\\AccessoryController::UpdateAction',));
+        // AdminList
+        if ('/admin/list' === $pathinfo) {
+            return array (  '_controller' => 'AccessoryBundle\\Controller\\AccessoryController::AdminListAction',  '_route' => 'AdminList',);
         }
 
         // add
         if ('/add' === $pathinfo) {
             return array (  '_controller' => 'AccessoryBundle\\Controller\\AccessoryController::AddAction',  '_route' => 'add',);
+        }
+
+        // _update
+        if (0 === strpos($pathinfo, '/Update') && preg_match('#^/Update/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => '_update')), array (  '_controller' => 'AccessoryBundle\\Controller\\AccessoryController::UpdateAction',));
         }
 
         // homepage
