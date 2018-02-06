@@ -122,14 +122,27 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AccessoryBundle\\Controller\\AccessoryController::listAction',  '_route' => 'list',);
         }
 
-        // AdminList
-        if ('/admin/list' === $pathinfo) {
-            return array (  '_controller' => 'AccessoryBundle\\Controller\\AccessoryController::AdminListAction',  '_route' => 'AdminList',);
+        // test
+        if ('/test' === $pathinfo) {
+            return array (  '_controller' => 'AccessoryBundle\\Controller\\AccessoryController::testAction',  '_route' => 'test',);
         }
 
-        // add
-        if ('/add' === $pathinfo) {
-            return array (  '_controller' => 'AccessoryBundle\\Controller\\AccessoryController::AddAction',  '_route' => 'add',);
+        if (0 === strpos($pathinfo, '/ad')) {
+            // AdminList
+            if ('/admin/list' === $pathinfo) {
+                return array (  '_controller' => 'AccessoryBundle\\Controller\\AccessoryController::AdminListAction',  '_route' => 'AdminList',);
+            }
+
+            // AdminDelete
+            if (0 === strpos($pathinfo, '/admin/Delete') && preg_match('#^/admin/Delete/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'AdminDelete')), array (  '_controller' => 'AccessoryBundle\\Controller\\AccessoryController::DeleteAction',));
+            }
+
+            // add
+            if ('/add' === $pathinfo) {
+                return array (  '_controller' => 'AccessoryBundle\\Controller\\AccessoryController::AddAction',  '_route' => 'add',);
+            }
+
         }
 
         // _update

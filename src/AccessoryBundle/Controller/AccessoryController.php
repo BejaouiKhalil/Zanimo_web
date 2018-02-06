@@ -19,6 +19,12 @@ class AccessoryController extends Controller
             "accessory"=>$accessory
         ));
     }
+    public function testAction(){
+        $accessories = $this->getDoctrine()->getManager()->getRepository(Accessory::class)->findAll();
+        return $this->render('AccessoryBundle:Accessory:testlayout.html.twig',array(
+            "accessories"=>$accessories
+        ));
+    }
 
     public function listAction()
     {
@@ -77,8 +83,14 @@ class AccessoryController extends Controller
         // uniqid(), which is based on timestamps
         return md5(uniqid());
     }
-    public function Delete(Accessory $accessory){
+    public function DeleteAction(Accessory $accessory){
         $em = $this->getDoctrine()->getManager();
+        $file = $accessory->getImageUrl();
+        unlink($file);
+        $em->remove($accessory);
+        $em->flush();
+
+        return $this->redirectToRoute('AdminList');
 
     }
 

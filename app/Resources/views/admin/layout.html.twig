@@ -570,9 +570,13 @@
 </footer>
 </div>
 {% block script %}
+    <!--<script src="{{ asset('admin/script/jquery-3.3.1.min.js') }}" type="text/javascript"></script>-->
     <script src="{{ asset('admin/script/script.js') }}" type="text/javascript"></script>
     <script src="{{ asset('admin/script/scripts.bundle.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('admin/script/dashboard.js') }}" type="text/javascript"></script>
 
+
+    <!-- <script src="{{ asset('admin/script/dashboard.js') }}" type="text/javascript"></script>-->
+
+    <script src="{{ asset('admin/script/sweetalert.min.js') }}"></script>
 {% endblock %}
 </body>
